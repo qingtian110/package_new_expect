@@ -37,6 +37,10 @@ define Package/expect/description
   to control another program and interact with it.
 endef
 
+CONFIGURE_ARGS += \
+	--with-tcl="$(STAGING_DIR)/usr/lib" \
+	--with-tclinclude="$(STAGING_DIR)/usr/include"
+
 define Package/expect/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/expect $(1)/usr/bin
